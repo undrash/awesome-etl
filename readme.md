@@ -26,23 +26,22 @@ ETL (extract, transform, load) and its siblings ELT, CDC and reverse ETL cover e
   - [Articles and Papers](#articles-and-papers)
   - [Newsletters and Podcasts](#newsletters-and-podcasts)
   - [Communities](#communities)
-- [Related Lists](#related-lists)
 
 ## The Best ETL Tools for Real-Time Data Integration in 2027
 
 ### Quick Comparison: Best Real-Time ETL Tools
 
-| Tool Names | Real-Time Approach | CDC | Streaming | Managed | Best Used For | Primary Drawback |
-| --- | --- | --- | --- | --- | --- | --- |
-| [Estuary](https://estuary.dev/) | Continuous CDC + streaming + batch | Yes | Yes | Yes | Mixed real-time and batch pipelines | More compact connector catalog than some other existing ELT solutions |
-| [Confluent](https://www.confluent.io/) | Kafka + Flink event streaming | Via connectors | Yes | Yes with Confluent Cloud | Kafka-centric architectures | More streaming concepts and platform complexity |
-| [Striim](https://www.striim.com/) | CDC + continuous streaming | Yes | Yes | Yes | Enterprise database replication | Enterprise-oriented platform |
-| [Informatica IDMC](https://www.informatica.com/platform.html) | Batch + CDC + streaming | Yes | Yes | Yes | Large, governed hybrid environments | Wide platform will increase complexity |
-| [Google Cloud Dataflow](https://cloud.google.com/dataflow) | Apache Beam stream/batch processing | Via upstream source | Yes | Yes | Custom GCP stream processing | Requires Beam/Dataflow expertise |
-| [Databricks Lakeflow](https://www.databricks.com/product/lakeflow) | Incremental + streaming pipelines | Source-dependent | Yes | Yes | Databricks lakehouse workloads | Strongest inside the Databricks ecosystem |
-| [AWS Glue](https://aws.amazon.com/glue/) | Spark ETL + Structured Streaming | Usually via upstream CDC service | Yes | Yes | AWS-native ETL | Real-time architecture could include many AWS services. |
-| [Fivetran](https://www.fivetran.com/) | Scheduled incremental replication + CDC | Yes | Limited as a general stream processor | Yes | Low-maintenance warehouse ingestion | Most traditional pipelines are synchronous |
-| [Airbyte](https://github.com/airbytehq/airbyte) | Scheduled ELT + CDC for supported databases | Yes, source-dependent | Limited for replication | Cloud or self-hosted | Connector flexibility and open source | More operations for self-hosting |
+| Tool Names            | Real-Time Approach                          | CDC                              | Streaming                             | Managed                  | Best Used For                         | Primary Drawback                                                      |
+| --------------------- | ------------------------------------------- | -------------------------------- | ------------------------------------- | ------------------------ | ------------------------------------- | --------------------------------------------------------------------- |
+| Estuary               | Continuous CDC + streaming + batch          | Yes                              | Yes                                   | Yes                      | Mixed real-time and batch pipelines   | More compact connector catalog than some other existing ELT solutions |
+| Confluent             | Kafka + Flink event streaming               | Via connectors                   | Yes                                   | Yes with Confluent Cloud | Kafka-centric architectures           | More streaming concepts and platform complexity                       |
+| Striim                | CDC + continuous streaming                  | Yes                              | Yes                                   | Yes                      | Enterprise database replication       | Enterprise-oriented platform                                          |
+| Informatica IDMC      | Batch + CDC + streaming                     | Yes                              | Yes                                   | Yes                      | Large, governed hybrid environments   | Wide platform will increase complexity                                |
+| Google Cloud Dataflow | Apache Beam stream/batch processing         | Via upstream source              | Yes                                   | Yes                      | Custom GCP stream processing          | Requires Beam/Dataflow expertise                                      |
+| Databricks Lakeflow   | Incremental + streaming pipelines           | Source-dependent                 | Yes                                   | Yes                      | Databricks lakehouse workloads        | Strongest inside the Databricks ecosystem                             |
+| AWS Glue              | Spark ETL + Structured Streaming            | Usually via upstream CDC service | Yes                                   | Yes                      | AWS-native ETL                        | Real-time architecture could include many AWS services.               |
+| Fivetran              | Scheduled incremental replication + CDC     | Yes                              | Limited as a general stream processor | Yes                      | Low-maintenance warehouse ingestion   | Most traditional pipelines are synchronous                            |
+| Airbyte               | Scheduled ELT + CDC for supported databases | Yes, source-dependent            | Limited for replication               | Cloud or self-hosted     | Connector flexibility and open source | More operations for self-hosting                                      |
 
 ## Data Integration
 
@@ -68,6 +67,7 @@ Tools that extract data from sources and load it into warehouses, lakes and data
 
 - [AWS Glue](https://aws.amazon.com/glue/) - Serverless Spark-based ETL and data catalog on AWS.
 - [Azure Data Factory](https://azure.microsoft.com/en-us/products/data-factory) - Managed data integration and orchestration on Azure.
+- [Databricks Lakeflow](https://www.databricks.com/product/data-engineering) - Managed ingestion, transformation and orchestration for Databricks lakehouse pipelines.
 - [Estuary](https://estuary.dev/) - Data movement platform with log-based CDC that runs streaming and batch pipelines from the same capture.
 - [Fivetran](https://www.fivetran.com/) - Managed ELT with a large catalog of prebuilt connectors.
 - [Hevo](https://hevodata.com/) - No-code pipelines from databases and SaaS applications into warehouses.
@@ -85,18 +85,18 @@ Tools that read a database's transaction log and turn every insert, update and d
 - [AWS Database Migration Service](https://aws.amazon.com/dms/) - Managed migration and ongoing replication between databases on AWS.
 - [Canal](https://github.com/alibaba/canal) - MySQL binlog parser for incremental subscription and consumption.
 - [Debezium](https://debezium.io/) - Log-based CDC connectors for Kafka Connect, with an embedded engine and a standalone server.
-- [Estuary](https://estuary.dev/) - Managed log-based CDC from Postgres, MySQL, SQL Server, Oracle and MongoDB to many destinations.
+- [Estuary](https://docs.estuary.dev/concepts/captures/) - Managed log-based CDC from PostgreSQL, MySQL, SQL Server, Oracle and MongoDB to many destinations.
 - [Flink CDC](https://github.com/apache/flink-cdc) - Streaming integration framework for CDC sources built on Apache Flink.
 - [Google Cloud Datastream](https://cloud.google.com/datastream) - Serverless CDC and replication into BigQuery and Cloud Storage.
 - [Maxwell](https://github.com/zendesk/maxwell) - Reads MySQL binlogs and writes row updates as JSON to Kafka, Kinesis and other streams.
 - [Oracle GoldenGate](https://www.oracle.com/integration/goldengate/) - Real-time replication for Oracle and heterogeneous databases.
-- [PeerDB](https://github.com/PeerDB-io/peerdb) - Fast Postgres replication and CDC into warehouses, queues and storage.
-- [pgstream](https://github.com/xataio/pgstream) - Postgres replication with schema change tracking.
+- [PeerDB](https://github.com/PeerDB-io/peerdb) - Fast PostgreSQL replication and CDC into warehouses, queues and storage.
+- [pgstream](https://github.com/xataio/pgstream) - PostgreSQL replication with schema change tracking.
 - [Qlik Replicate](https://www.qlik.com/us/di/products/qlik-replicate) - Enterprise log-based replication across databases, mainframes and SAP.
-- [Sequin](https://github.com/sequinstream/sequin) - Streams Postgres changes to Kafka, SQS, Redis and webhooks.
+- [Sequin](https://github.com/sequinstream/sequin) - Streams PostgreSQL changes to Kafka, SQS, Redis and webhooks.
 - [Striim](https://www.striim.com/) - Real-time integration platform with CDC and streaming SQL.
-- [Supabase ETL](https://github.com/supabase/etl) - Rust framework for building Postgres logical replication pipelines.
-- [wal2json](https://github.com/eulerto/wal2json) - Postgres logical decoding output plugin that emits changes as JSON.
+- [Supabase ETL](https://github.com/supabase/etl) - Rust framework for building PostgreSQL logical replication pipelines.
+- [wal2json](https://github.com/eulerto/wal2json) - PostgreSQL logical decoding output plugin that emits changes as JSON.
 
 ## Event Streaming
 
@@ -121,11 +121,12 @@ Engines that compute over data while it is moving.
 - [Apache Flink](https://flink.apache.org/) - Stateful stream processing with event-time semantics and exactly-once guarantees.
 - [Arroyo](https://github.com/ArroyoSystems/arroyo) - Distributed stream processing engine with a SQL interface, written in Rust.
 - [Feldera](https://github.com/feldera/feldera) - Incremental computation engine that evaluates SQL over changing data.
+- [Google Cloud Dataflow](https://cloud.google.com/products/dataflow) - Managed Apache Beam runner for batch and streaming pipelines on Google Cloud.
 - [Kafka Streams](https://kafka.apache.org/documentation/streams/) - Client library for building stream processing applications on Kafka.
 - [Materialize](https://github.com/MaterializeInc/materialize) - Operational data store that keeps SQL views incrementally up to date.
 - [Pathway](https://github.com/pathwaycom/pathway) - Python framework for stream processing and real-time pipelines.
 - [Quix Streams](https://github.com/quixio/quix-streams) - Python library for stream processing on Kafka.
-- [RisingWave](https://github.com/risingwavelabs/risingwave) - Postgres-compatible streaming database for continuous SQL.
+- [RisingWave](https://github.com/risingwavelabs/risingwave) - PostgreSQL-compatible streaming database for continuous SQL.
 
 ## Processing Engines
 
@@ -175,7 +176,7 @@ Tools that sync modeled data from the warehouse back into operational systems.
 Tools that check data is correct, complete and on time.
 
 - [Deequ](https://github.com/awslabs/deequ) - Library for unit-testing data at scale on Apache Spark.
-- [Elementary](https://github.com/elementary-data/elementary) - dbt-native data observability with anomaly detection and reports.
+- [Elementary](https://github.com/elementary-data/elementary) - Native data observability for dbt, with anomaly detection and reports.
 - [Great Expectations](https://github.com/fivetran/great_expectations) - Data validation framework built on declarative expectations.
 - [Monte Carlo](https://montecarlo.ai/) - Data observability platform that detects and triages pipeline incidents.
 - [Pandera](https://github.com/unionai-oss/pandera) - Statistical schema validation for dataframes.
@@ -228,7 +229,7 @@ Formats that pipelines write and query engines read.
 - [Functional Data Engineering](https://maximebeauchemin.medium.com/functional-data-engineering-a-modern-paradigm-for-batch-data-processing-2327ec32c42a) - Idempotent, partition-based batch pipelines, by Maxime Beauchemin.
 - [Streaming 101](https://www.oreilly.com/radar/the-world-beyond-batch-streaming-101/) - Introduction to unbounded data and event time, by Tyler Akidau.
 - [The Dataflow Model](https://www.vldb.org/pvldb/vol8/p1792-Akidau.pdf) - Paper on balancing correctness, latency and cost in unbounded data processing.
-- [The Log](https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) - Why the append-only log unifies databases and data integration, by Jay Kreps.
+- [The Log](https://web.archive.org/web/20240105095933/https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying) - Why the append-only log unifies databases and data integration, by Jay Kreps.
 - [Turning the Database Inside Out](https://martin.kleppmann.com/2015/03/04/turning-the-database-inside-out.html) - Treating the change log as the source of truth, by Martin Kleppmann.
 
 ### Newsletters and Podcasts
